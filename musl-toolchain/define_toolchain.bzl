@@ -12,3 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+load(
+    "@prelude//cxx:cxx_toolchain_types.bzl",
+    "BinaryUtilitiesInfo",
+    "CCompilerInfo",
+    "CxxCompilerInfo",
+    "CxxPlatformInfo",
+    "CxxToolchainInfo",
+    "LinkerInfo",
+    "PicBehavior",
+    "ShlibInterfacesMode",
+)
+load("@prelude//cxx:headers.bzl", "HeaderMode")
+load("@prelude//cxx:linker.bzl", "is_pdb_generated")
+load("@prelude//linking:link_info.bzl", "LinkOrdering", "LinkStyle")
+load("@prelude//linking:lto.bzl", "LtoMode")
+load("@prelude//toolchains/msvc:tools.bzl", "VisualStudio")
+load("@prelude//utils:cmd_script.bzl", "ScriptOs", "cmd_script")
