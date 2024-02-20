@@ -1,9 +1,24 @@
-load("@musl-toolchain//musl-toolchain:all_archives.bzl", "get_default_archive_for")
-load("@musl-toolchain//musl-toolchain:types.bzl", "Architecture", "Mode", "Platform")
-load("@musl-toolchain//musl-toolchain:download_archive.bzl", "download_archive")
+# Copyright 2024 github.com/zadlg
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http:#www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-download_archive("x86_64-linux-native.ar", get_default_archive_for(
-    arch = Architecture("x86_64"),
-    platform = Platform("linux"),
-    mode = Mode("native"),
-))
+load("@musl-toolchain//musl-toolchain:archive.bzl", "new_archive")
+load("@musl-toolchain//musl-toolchain:types.bzl", "Architecture", "Mode", "Platform")
+load("@musl-toolchain//musl-toolchain:define_toolchain.bzl", "define_cxx_toolchain")
+load("@musl-toolchain//musl-toolchain:all_archives.bzl", "X86_64_LINUX_NATIVE")
+
+new_archive(
+    name = "x86_64-linux-native",
+    visibility = ["PUBLIC"],
+    **X86_64_LINUX_NATIVE
+)
