@@ -1,7 +1,7 @@
 [repositories]
 root = .
 musl-toolchain = .
-prelude = prelude
+prelude = buck2-prelude
 toolchains = toolchains
 none = none
 
