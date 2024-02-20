@@ -12,12 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load(":types.bzl", "Architecture", "Mode", "Platform")
+load(":architecture.bzl", "Architecture")
+load(":manifest.bzl", "ArchiveManifest")
+load(":mode.bzl", "Mode")
+load(":platform.bzl", "Platform")
 
-X86_64_LINUX_NATIVE = {
-    "arch": Architecture("x86_64"),
-    "platform": Platform("linux"),
-    "mode": Mode("native"),
-    "gcc_version": "11",
-    "sha256": "eb1db6f0f3c2bdbdbfb993d7ef7e2eeef82ac1259f6a6e1757c33a97dbcef3ad",
-}
+# An archive that contains a musl toolchain.
+Archive = record(
+    # URL to the archive.
+    url = str,
+
+    # Architecture.
+    arch = Architecture,
+
+    # Platform.
+    platform = Platform,
+
+    # Mode
+    mode = Mode,
+
+    # Archive prefix.
+    prefix = str,
+
+    # SHA-256 of the archive.
+    sha256 = str,
+
+    # Manifest.
+    manifest = ArchiveManifest,
+)
