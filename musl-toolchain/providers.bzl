@@ -12,7 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cxx_library(
-    name = "a",
-    srcs = ["a.c"],
-)
+load("@musl-toolchain//musl-toolchain/providers:archive_info.bzl", "ArchiveInfo")
+load("@musl-toolchain//musl-toolchain/providers:archive_toolchain_info.bzl", "ArchiveToolchainInfo")
+
+load_symbols({
+    "ArchiveInfo": ArchiveInfo,
+    "ArchiveToolchainInfo": ArchiveToolchainInfo,
+})
