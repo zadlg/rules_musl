@@ -12,7 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cxx_library(
-    name = "a",
-    srcs = ["a.c"],
+load("@musl-toolchain//musl-toolchain/types:archive.bzl", "Archive")
+
+ArchiveInfo = provider(
+    doc = "Info about an archive",
+    fields = {
+        "ar": provider_field(Archive),
+        "src": provider_field(Dependency),
+    },
 )
