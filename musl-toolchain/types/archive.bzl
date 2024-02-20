@@ -12,7 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cxx_library(
-    name = "a",
-    srcs = ["a.c"],
+load(":architecture.bzl", "Architecture")
+load(":manifest.bzl", "ArchiveManifest")
+load(":mode.bzl", "Mode")
+load(":platform.bzl", "Platform")
+
+# An archive that contains a musl toolchain.
+Archive = record(
+    # URL to the archive.
+    url = str,
+
+    # Architecture.
+    arch = Architecture,
+
+    # Platform.
+    platform = Platform,
+
+    # Mode
+    mode = Mode,
+
+    # Archive prefix.
+    prefix = str,
+
+    # SHA-256 of the archive.
+    sha256 = str,
+
+    # Manifest.
+    manifest = ArchiveManifest,
 )
