@@ -12,12 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load(":types.bzl", "Architecture", "Mode", "Platform")
+load("@musl-toolchain//musl-toolchain/providers:archive_info.bzl", "ArchiveInfo")
+load("@musl-toolchain//musl-toolchain/providers:archive_toolchain_info.bzl", "ArchiveToolchainInfo")
 
-X86_64_LINUX_NATIVE = {
-    "arch": Architecture("x86_64"),
-    "platform": Platform("linux"),
-    "mode": Mode("native"),
-    "gcc_version": "11",
-    "sha256": "eb1db6f0f3c2bdbdbfb993d7ef7e2eeef82ac1259f6a6e1757c33a97dbcef3ad",
-}
+load_symbols({
+    "ArchiveInfo": ArchiveInfo,
+    "ArchiveToolchainInfo": ArchiveToolchainInfo,
+})
