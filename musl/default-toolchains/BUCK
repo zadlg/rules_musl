@@ -12,12 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@musl-toolchain//musl-toolchain/types:archive.bzl", "Archive")
+load("@rules_musl//musl/archive:rules.bzl", "new_archive")
+load("@rules_musl//musl:types.bzl", "Architecture", "Mode", "Platform")
+load("@rules_musl//musl:define_toolchain.bzl", "define_cxx_toolchain")
+load("@rules_musl//musl:all_archives.bzl", "X86_64_LINUX_NATIVE")
 
-ArchiveInfo = provider(
-    doc = "Info about an archive",
-    fields = {
-        "ar": provider_field(Archive),
-        "src": provider_field(Dependency),
-    },
+new_archive(
+    name = "x86_64-linux-native",
+    visibility = ["PUBLIC"],
+    **X86_64_LINUX_NATIVE
 )

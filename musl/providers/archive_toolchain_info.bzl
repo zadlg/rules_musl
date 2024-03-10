@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@musl-toolchain//musl-toolchain/types:archive.bzl", "Archive")
+load("@rules_musl//musl/types:archive.bzl", "Archive")
 
 ArchiveToolchainInfo = provider(
     doc = "Toolchain related info from an archive",
