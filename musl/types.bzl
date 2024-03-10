@@ -12,10 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@musl-toolchain//musl-toolchain/providers:archive_info.bzl", "ArchiveInfo")
-load("@musl-toolchain//musl-toolchain/providers:archive_toolchain_info.bzl", "ArchiveToolchainInfo")
+load("@rules_musl//musl/types:architecture.bzl", "Architecture")
+load("@rules_musl//musl/types:archive.bzl", "Archive")
+load("@rules_musl//musl/types:manifest.bzl", "ArchiveManifest", "ArchiveManifestLibraries", "ArchiveManifestTools")
+load("@rules_musl//musl/types:mode.bzl", "Mode")
+load("@rules_musl//musl/types:platform.bzl", "Platform")
 
 load_symbols({
-    "ArchiveInfo": ArchiveInfo,
-    "ArchiveToolchainInfo": ArchiveToolchainInfo,
+    "Architecture": Architecture,
+    "Archive": Archive,
+    "ArchiveManifest": ArchiveManifest,
+    "ArchiveManifestLibraries": ArchiveManifestLibraries,
+    "ArchiveManifestTools": ArchiveManifestTools,
+    "Mode": Mode,
+    "Platform": Platform,
 })

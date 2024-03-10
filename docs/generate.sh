@@ -6,11 +6,11 @@ buck2 docs starlark \
   --format markdown_files \
   --markdown-files-starlark-subdir "" \
   --markdown-files-destination-dir "${PWD}/docs/" \
-  -- @musl-toolchain//musl-toolchain:rules.bzl \
-  @musl-toolchain//musl-toolchain/archive:rules.bzl \
-  @musl-toolchain//musl-toolchain:providers.bzl \
-  @musl-toolchain//musl-toolchain:define_toolchain.bzl \
-  @musl-toolchain//musl-toolchain:types.bzl
+  -- @rules_musl//musl:rules.bzl \
+  @rules_musl//musl/archive:rules.bzl \
+  @rules_musl//musl:providers.bzl \
+  @rules_musl//musl:define_toolchain.bzl \
+  @rules_musl//musl:types.bzl
 
 if ! [ "$1" = "generate" ]; then
   if [ -d ".git" ]; then

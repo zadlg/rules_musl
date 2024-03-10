@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@musl-toolchain//musl-toolchain:providers.bzl", "ArchiveInfo", "ArchiveToolchainInfo")
-load("@musl-toolchain//musl-toolchain:types.bzl", "Architecture", "Archive", "ArchiveManifest", "Mode", "Platform")
-load("@musl-toolchain//musl-toolchain:rules.bzl", "manifest_from_flat_dict", "manifest_get_default", "manifest_to_flat_dict")
+load("@rules_musl//musl:providers.bzl", "ArchiveInfo", "ArchiveToolchainInfo")
+load("@rules_musl//musl:types.bzl", "Architecture", "Archive", "ArchiveManifest", "Mode", "Platform")
+load("@rules_musl//musl:rules.bzl", "manifest_from_flat_dict", "manifest_get_default", "manifest_to_flat_dict")
 
 # Prefix in the archive.
 _ARCHIVE_PREFIX_FORMAT = "{arch}-{platform}-musl-{mode}"

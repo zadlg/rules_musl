@@ -1,6 +1,6 @@
 [repositories]
 root = .
-musl-toolchain = .
+rules_musl = .
 prelude = prelude
 toolchains = toolchains
 none = none
@@ -15,4 +15,4 @@ buck = none
 
 [parser]
 target_platform_detector_spec = target:root//...->prelude//platforms:default
-target_platform_detector_spec = target:musl-toolchain//...->prelude//platforms:default
+target_platform_detector_spec = target:rules_musl//...->prelude//platforms:default

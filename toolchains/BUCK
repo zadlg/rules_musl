@@ -1,6 +1,6 @@
 load("@prelude//toolchains:genrule.bzl", "system_genrule_toolchain")
 load("@prelude//toolchains:python.bzl", "system_python_bootstrap_toolchain", "system_python_toolchain")
-load("@musl-toolchain//musl-toolchain:define_toolchain.bzl", "define_cxx_toolchain")
+load("@rules_musl//musl:define_toolchain.bzl", "define_cxx_toolchain")
 
 system_python_bootstrap_toolchain(
     name = "python_bootstrap",
@@ -14,6 +14,6 @@ system_genrule_toolchain(
 
 define_cxx_toolchain(
     name = "cxx",
-    archive = "@musl-toolchain//musl-toolchain/default-toolchains:x86_64-linux-native",
+    archive = "@rules_musl//musl/default-toolchains:x86_64-linux-native",
     visibility = ["PUBLIC"],
 )

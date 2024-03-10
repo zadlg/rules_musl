@@ -12,15 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load(
-    "@musl-toolchain//musl-toolchain/types:manifest.bzl",
-    manifest_from_flat_dict = "from_flat_dict",
-    manifest_get_default = "default",
-    manifest_to_flat_dict = "to_flat_dict",
-)
+load("@rules_musl//musl/types:archive.bzl", "Archive")
 
-load_symbols({
-    "manifest_get_default": manifest_get_default,
-    "manifest_from_flat_dict": manifest_from_flat_dict,
-    "manifest_to_flat_dict": manifest_to_flat_dict,
-})
+ArchiveInfo = provider(
+    doc = "Info about an archive",
+    fields = {
+        "ar": provider_field(Archive),
+        "src": provider_field(Dependency),
+    },
+)
